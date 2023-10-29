@@ -9,3 +9,5 @@ Navigate to the source directory and then run command "npm i"
 Run command "npm start"
 
 For fetching data go to kt_admin_api
+
+For dummy login use credentials [username:asdf@gmail.com   password:123456]
