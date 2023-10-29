@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import "./Newdevice.css";
-import axios from 'axios';
+import axios from "axios";
 
 function DeviceForm() {
   const [formData, setFormData] = useState({
-    name: '',
-    fan: '',
-    light: '',
-    mis: '',
+    name: "",
+    fan: "",
+    light: "",
+    mis: "",
   });
 
   const handleChange = (e) => {
@@ -21,18 +21,19 @@ function DeviceForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const { name, fan, light, mis} = formData
-        
-    if( name && fan && light && mis) {
-        axios.post("http://localhost:5000/deviceregister", formData)
-        .then( res => {alert(res.data.message)
-         } )
-        alert("Registered Successfully")
-        
+    const { name, fan, light, mis } = formData;
+
+    if (name && fan && light && mis) {
+      axios
+        .post("http://localhost:5000/deviceregister", formData)
+        .then((res) => {
+          alert(res.data.message);
+        });
+      alert("Registered Successfully");
     } else {
-        alert("invalid input")
+      alert("invalid input");
     }
-    
+
     console.log(formData);
   };
 
@@ -60,7 +61,7 @@ function DeviceForm() {
             required
           />
         </div>
-        
+
         <div className="form-group">
           <label>Lights</label>
           <input

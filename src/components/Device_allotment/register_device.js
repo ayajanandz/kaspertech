@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import "./register_device.css";
-import axios from 'axios';
+import axios from "axios";
 
 function RegistrationForm() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phoneNumber: '',
-    numberOfRooms: '',
+    name: "",
+    email: "",
+    phoneNumber: "",
+    numberOfRooms: "",
   });
 
   const handleChange = (e) => {
@@ -21,18 +21,19 @@ function RegistrationForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const { name, email, phoneNumber, numberOfRooms } = formData
-        
-    if( name && email && phoneNumber && numberOfRooms) {
-        axios.post("http://localhost:5000/user_register", formData)
-        .then( res => {alert(res.data.message)
-         } )
-        alert("Registered Successfully")
-        
+    const { name, email, phoneNumber, numberOfRooms } = formData;
+
+    if (name && email && phoneNumber && numberOfRooms) {
+      axios
+        .post("http://localhost:5000/user_register", formData)
+        .then((res) => {
+          alert(res.data.message);
+        });
+      alert("Registered Successfully");
     } else {
-        alert("invalid input")
+      alert("invalid input");
     }
-    
+
     console.log(formData);
   };
 
@@ -60,7 +61,7 @@ function RegistrationForm() {
             required
           />
         </div>
-       
+
         <button type="submit">Submit</button>
       </form>
     </div>

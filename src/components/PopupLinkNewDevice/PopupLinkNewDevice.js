@@ -1,29 +1,27 @@
-import { Button, Dialog, DialogContent, DialogTitle } from '@mui/material'
-import React from 'react'
-//import './PopupNewDevice.css'
+import { Button, Dialog, DialogContent, DialogTitle } from "@mui/material";
+import React from "react";
 
 function PopupLinkNewDevice(props) {
-    const{children, openLinkDevicePopUp, setOpenLinkDevicePopUp} = props
+  const { children, openLinkDevicePopUp, setOpenLinkDevicePopUp } = props;
 
   return (
     <Dialog open={openLinkDevicePopUp}>
-        <DialogTitle>
-            <div>Link New Device</div>
-            
+      <DialogTitle>
+        <div>Link New Device</div>
+      </DialogTitle>
 
-        </DialogTitle>
-            
-        <DialogContent>
-            {children}
-        </DialogContent>
-        <hr/>
-        <div className='cancelbtn'>
-        <Button variant='outlined' onClick={()=> setOpenLinkDevicePopUp(false)}>Cancel</Button>
-        </div>
-       
-
+      <DialogContent>{children}</DialogContent>
+      <hr />
+      <div className="cancelbtn">
+        <Button
+          variant="outlined"
+          onClick={() => setOpenLinkDevicePopUp(false)}
+        >
+          Cancel
+        </Button>
+      </div>
     </Dialog>
-  )
+  );
 }
 
-export default PopupLinkNewDevice
+export default PopupLinkNewDevice;

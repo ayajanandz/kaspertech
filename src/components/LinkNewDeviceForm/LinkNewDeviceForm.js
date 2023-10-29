@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import "./LinkNewDeviceForm.css";
-import axios from 'axios';
+import axios from "axios";
 
 function LinkNewDeviceForm(props) {
-    
   const [formData, setFormData] = useState({
     deviceName: props.deviceDetails.device_id,
-    userName: '',
-    
+    userName: "",
   });
 
   const handleChange = (e) => {
@@ -20,19 +18,16 @@ function LinkNewDeviceForm(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("*******************",formData);
-    const { deviceName, userName } = formData
-        
-    if(userName) {
-        axios.post("http://localhost:5000/updatedevice", formData)
-        .then( res => {alert(res.data.message)
-         } )
-        alert("Registered Successfully")
-        
-    } else {
-        alert("invalid input")
-    }
+    const { userName } = formData;
 
+    if (userName) {
+      axios.post("http://localhost:5000/updatedevice", formData).then((res) => {
+        alert(res.data.message);
+      });
+      alert("Registered Successfully");
+    } else {
+      alert("invalid input");
+    }
   };
 
   return (

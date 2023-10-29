@@ -15,11 +15,6 @@ function HomePage() {
   const [openPopup, setOpenPopup] = useState(false);
   const [device, setDevice] = useState(false);
 
-  const handleCategoryClick = (category) => {
-    // You can add logic here to navigate or handle the category click event.
-    console.log(`Clicked on ${category}`);
-  };
-
   const logoutFnc = () => {
     localStorage.setItem("UserName", null);
     localStorage.setItem("login", null);

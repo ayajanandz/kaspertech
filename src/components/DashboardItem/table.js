@@ -27,14 +27,12 @@ export default function BasicTable() {
         .catch((err) => console.log(err));
     } else {
       alert("Oops you are logged out");
-      // navigate('/login');
     }
   }, []);
 
   const handleLinkDevice = (row) => {
     setDeviceDetails(row);
     setOpenLinkDevicePopUp(true);
-    //setDeviceOpenPopup(true);
   };
 
   return (
@@ -47,7 +45,6 @@ export default function BasicTable() {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead className="thead-dark">
             <TableRow>
-              {/* <TableCell>Device ID</TableCell> */}
               <TableCell align="left">Device ID</TableCell>
               <TableCell align="left">User Name</TableCell>
               <TableCell align="left">Device Name</TableCell>
@@ -55,7 +52,6 @@ export default function BasicTable() {
               <TableCell align="left">Lights</TableCell>
               <TableCell align="left">Misc</TableCell>
               <TableCell align="center">Status</TableCell>
-              {/* <TableCell align="right">Protein&nbsp;(g)</TableCell> */}
             </TableRow>
           </TableHead>
           <TableBody>
@@ -64,9 +60,6 @@ export default function BasicTable() {
                 key={row.alloted_to_user}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
-                {/* <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell> */}
                 <TableCell align="left">{row._id}</TableCell>
                 <TableCell align="left">
                   {row.alloted_to_user ? row.alloted_to_user : "-"}
@@ -89,24 +82,22 @@ export default function BasicTable() {
                   ) : (
                     <Button
                       variant="outlined"
-                      onClick={() => handleLinkDevice(row)
-                      }
+                      onClick={() => handleLinkDevice(row)}
                     >
                       Link
                     </Button>
                   )}
                 </TableCell>
-                {/* <TableCell align="right">{row.protein}</TableCell> */}
               </TableRow>
             ))}
           </TableBody>
         </Table>
       </TableContainer>
       <PopupLinkNewDevice
-       openLinkDevicePopUp={openLinkDevicePopUp}
+        openLinkDevicePopUp={openLinkDevicePopUp}
         setOpenLinkDevicePopUp={setOpenLinkDevicePopUp}
       >
-      <LinkNewDeviceForm deviceDetails={deviceDetails} />
+        <LinkNewDeviceForm deviceDetails={deviceDetails} />
       </PopupLinkNewDevice>
     </>
   );

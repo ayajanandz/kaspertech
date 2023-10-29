@@ -1,29 +1,25 @@
-import { Button, Dialog, DialogContent, DialogTitle } from '@mui/material'
-import React from 'react'
-import './Popup.css'
+import { Button, Dialog, DialogContent, DialogTitle } from "@mui/material";
+import React from "react";
+import "./Popup.css";
 
 function Popup(props) {
-    const{title, children, openPopup, setOpenPopup} = props
+  const { children, openPopup, setOpenPopup } = props;
 
   return (
     <Dialog open={openPopup}>
-        <DialogTitle>
-            <div>New Customer Details</div>
-            
+      <DialogTitle>
+        <div>New Customer Details</div>
+      </DialogTitle>
 
-        </DialogTitle>
-            
-        <DialogContent>
-            {children}
-        </DialogContent>
-        <hr/>
-        <div className='cancelbtn'>
-        <Button variant='outlined' onClick={()=> setOpenPopup(false)}>Cancel</Button>
-        </div>
-       
-
+      <DialogContent>{children}</DialogContent>
+      <hr />
+      <div className="cancelbtn">
+        <Button variant="outlined" onClick={() => setOpenPopup(false)}>
+          Cancel
+        </Button>
+      </div>
     </Dialog>
-  )
+  );
 }
 
-export default Popup
+export default Popup;
